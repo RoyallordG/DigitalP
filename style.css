@@ -1,4 +1,5 @@
-/* Resetting default styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');/* Resetting default styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +7,17 @@
     list-style: none;
     text-decoration:none ;
     scroll-behavior: smooth;
+    font-family: "Montserrat", sans-serif;
   }
+  
   
   :root{
     --box-shadow: 0 8px 11px rgb(14 55 54 / 15%);
-    --blue:  rgb(56, 56, 157);
+    --blue:  rgb(26, 76, 211);
     --main-transition: all 0.3s linear;
   }
+  
   nav {
-    background-color: white;
-    box-shadow: var(--box-shadow);
     width: 100%;
     height: 80px;
     padding: 30px 80px;
@@ -23,6 +25,13 @@
     display: flex;
     justify-content: space-between;
     z-index: 10;
+    border-bottom: 1px solid black;
+    background: white;
+
+  }
+  nav .logo{
+   font-weight: 700;
+   font-size: 25px;
   }
   
   .list {
@@ -35,12 +44,16 @@
   .list li {
     margin-right: 20px;
   }
-  
-  .list li a{
+  .list li a {
     color: black;
+    font-size: 18px;
   }
- 
   
+  .list li a:hover{
+    transition: var(--main-transition);
+    color: var(--blue);
+  }
+
   .dropdown {
     position: relative;
   }
@@ -48,34 +61,42 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 3;
+    background: white;
   }
   
   .dropdown-content a {
-    color: #333;
     padding: 12px 16px;
     display: block;
     text-decoration: none;
   }
-  
-  .dropdown-content hr {
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 5px 0;
+  .dropdown-content a:hover{
+    transition: var(--main-transition);
+    color: var(--blue);
   }
-  
+ 
   .dropdown:hover .dropdown-content {
     display: block;
   }
   .nav-icon{
     display: flex;
-    column-gap: 1.5rem;
+    column-gap: 0.5rem;
+  }
+  nav #menu-icon{
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 30px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
   }
   .nav-icon .bx{
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
   }
   
@@ -83,12 +104,8 @@
     padding: 60px 80px;
   }
   .home{
-    background-image: url(backgroundImg4.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     width: 100%;
-    height: 100vh;
+    height: 150vh;
    
   }
 
@@ -102,19 +119,66 @@
   .home-text {
     text-align: center;
   }
+  .home-text span{
+    letter-spacing: 2px;
+  }
+  .home-text hr{
+   margin: 1.5rem auto;
+   width: 20%;
+  }
   .home-text h1{
     font-size: 50px;
-    color: white;
+    color: var(--orange-color);
     margin-bottom: 20px;
   }
   
+.home-content img{
+  margin-top: 2rem;
+    width: 60%;
+   object-fit: contain;
+   object-position: center;
+   border-radius: 10px;
+  }
+  .blueink{
+    color: var(--blue);
+  }
+  
   .home-text p{
-    font-size: 18px;
-    color: orange;
+    font-size: 20px;
+    color:  black;
     margin-bottom: 20px;
   }
   .search-bar{
     position: relative;
+  }
+  .search-button input{
+    border: none;
+    width: 250%;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+   margin-top: 10px;
+    border: 1px solid #ddd;
+  }
+  .search-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.5rem;
+  }
+  .search-button .bx{
+    right: -95%;
+   background: var(--blue);
+   color: white;
+   height: 50px;
+   width: 200px;
+   border: 5px;
+   display: flex;
+   align-items: center;
+   font-size: 30px;
+   justify-content: center;
+   margin-top: 10px;
+   border-radius: 5px;
   }
   .search-bar input{
     border: none;
@@ -148,7 +212,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    background: rgb(56, 56, 157);
+    background: var(--blue);
     width: 15px;
     height: 15px;
     border-radius: 30px;
@@ -162,6 +226,19 @@
     position: relative;
   
   }
+
+  /* cart */
+  .cart-items h3{
+    text-align: center;
+  }
+  .cart-content{
+    max-height: 70%; /* Set the maximum height */
+    overflow-y: auto; 
+  } 
+  .cart-content h3{
+    text-align: center;
+    margin-top: 20px;
+  }
   .cart-section{
     position: fixed;
     right: 0;
@@ -170,7 +247,7 @@
     width: 26%;
     background: white;
     z-index: 11;
-    padding: 30px;
+    padding: 15px;
     transform: translateX(100%);
     transition: var(--main-transition);
   }
@@ -244,8 +321,12 @@
  .nameQuantity{
   display: flex;
   align-items: center;
+  text-align: center;
   flex-direction: column;
-  row-gap: 5px;
+  row-gap: 15px;
+ }
+ .nameQuantity .bx{
+  cursor: pointer;
  }
  .nameQuantity span{
   border: 1px solid black;
@@ -290,18 +371,7 @@
   font-size: 24px;
   cursor: pointer;
 }
-nav #menu-icon{
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 20px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  padding: 4px;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
+
 
 .heading{
   margin-bottom: 50px;
@@ -814,6 +884,17 @@ border-radius: 40px;
 }
 }
 @media (max-width: 730px){
+
+  .home{
+    height: 100vh;
+  } 
+  .home-content{
+    width: 100%;
+    margin-top: 0;
+  }
+  .home-content img{
+    width: 100%;
+  }
   .testimonial h1{
     font-size: 30px;
   }
@@ -835,8 +916,18 @@ font-size: 18px;
   .cart-section{
     width: 100%;
   }
+  nav{
+    position: relative;
+  }
   nav #menu-icon{
     display: initial;
+    position: absolute;
+    left: auto;
+
+  }
+  nav .logo{
+    position: absolute;
+    right: 40%;
   }
 
  .list  {
@@ -927,9 +1018,7 @@ font-size: 18px;
 
 }
 @media (max-width: 503px){
-  .home-content{
-    transform: scale(0.7);
-  }
+
   section{
     padding: 40px 20px;
   }
@@ -939,6 +1028,13 @@ font-size: 18px;
   .list  {
     top: 4%;
     }  
+    .home-text h1{
+      font-size: 42px;
+    }
+    .home-text p{
+      font-size: 16px;
+    }
+   
 }
 
 @media (max-width: 407px){
@@ -946,9 +1042,7 @@ font-size: 18px;
   section{
     padding: 40px 20px;
   }
-  .home-content{
-    transform: scale(0.6);
-  }
+ 
   .popular-products .view-all{
     margin-left: 120px;
      }
@@ -961,6 +1055,18 @@ font-size: 18px;
        .contact-info{
         margin-top: 10px;
        }
+
+       .home-text h1{
+        font-size: 38px;
+      }
+      .home-text p{
+        font-size: 16px;
+      }
+      nav .logo{
+        position: absolute;
+        right: 35%;
+      }
+      
 }
 
 

@@ -18,13 +18,167 @@ menuIcon.addEventListener('click', function(){
 })
 
 
-// $('.popularP-container').slick({
-//     slidesToShow: 5,
-//     slidesToScroll: 1,
-//     autoplay: true,
-//     autoplaySpeed: 2000,
-//     arrows: false
-//   });
+let product = [
+  {
+    id : 1,
+    img : 'product/img1.jpg',
+    amount : '2500',
+    bookName : 'Walk into Shadow'
+  },
+  {
+    id : 2,
+    img : 'product/img2.jpg',
+    amount : '1500',
+    bookName : 'Alone'
+  },
+  {
+    id : 3,
+    img : 'product/img3.jpg',
+    amount : '3500',
+    bookName : 'Prayer Journal'
+  },
+  {
+    id : 4,
+    img : 'product/img4.jpg',
+    amount : '4500',
+    bookName : 'Soul'
+  },
+  {
+    id : 5,
+    img : 'product/img5.jpg',
+    amount : '5500',
+    bookName : 'Young Wizard'
+  },
+  {
+    id : 6,
+    img : 'product/img6.jpg',
+    amount : '9000',
+    bookName : 'Conquest of Flames'
+  }
+]
+let arrival = [
+  {
+    id : 7,
+    kind : 'arrival',
+    img : 'arrival/img.jpg',
+    amount : '1000',
+    bookName : 'Solo'
+  },
+  {
+    id : 8,
+    kind : 'arrival',
+    img : 'arrival/img2.jpg',
+    amount : '2000',
+    bookName : 'Xennix'
+  },
+  {
+    id : 9,
+    kind : 'arrival',
+    img : 'arrival/img3.jpg',
+    amount : '3000',
+    bookName : 'Ranch'
+  },
+  {
+    id : 10,
+    kind : 'arrival',
+    img : 'arrival/img4.jpg',
+    amount : '4000',
+    bookName : 'The whispering Throne'
+  },
+  {
+    id : 11,
+    kind: 'arrival',
+    img : 'arrival/img5.jpg',
+    amount : '5000',
+    bookName : 'Love'
+  }
+]
+let allProducts = product.concat(arrival)
+
+let popularpContainer = document.querySelector('.popularP-container')
+let i = 0
+let category = product.map(function(item, index){
+  return ` <div class="porpularP-item">
+  <a href=""><img src="${item.img}" alt=""></a> 
+  <div class="popularP-text">
+  <span class="category">Category</span>
+  <span class="Book-name">${item.bookName}</span>
+  <button>$<span>${item.amount}</span></button>
+ <button class="addToCart" onclick='addToCart(${i++})'>Add to Cart</button>
+</div>
+</div>`
+}).join('')
+
+popularpContainer.innerHTML = category
+
+let arrivalContainer = document.querySelector('.arrival-container')
+let arrivalcategory = arrival.map(function(item, index){
+return ` <div class="arrival-item">
+<a href=""><img src="${item.img}" alt=""></a> 
+<div class="arrival-text">
+<span class="category">Category</span>
+<span class="Book-name">${item.bookName}</span>
+<button>$<span>${item.amount}</span></button>
+<button class="addToCart" onclick='addToCart(${i++})'>Add to Cart</button>
+</div>
+</div>`
+}).join("")
+
+arrivalContainer.innerHTML =  arrivalcategory
+
+ 
+
+let cartContent = document.querySelector('.cart-content')
+let countercount = document.getElementById('count-counter')
+let countercount2 = document.getElementById('cartCounter')
+let totale = document.getElementById('total')
+let price = document.getElementById('amount')
+
+
+let cart = []
+
+function addToCart(index){
+  cart.push({...allProducts[index]})
+  displayCart()
+  }
+function deleteItem(index){
+  cart.splice(index, 1)
+  displayCart()
+}
+
+function displayCart(){
+  let j, total = 0
+  countercount.innerHTML = cart.length
+  countercount2.innerHTML = cart.length
+  if (cart.length === 0){
+  cartContent.innerHTML = `<h3 style="text-align: center; margin-top: 30px;">Your Cart is Empty</h3>`
+  totale.innerHTML = `0.00`
+}
+else {
+  let cartItems = cart.map(function(item){
+    total = total + parseInt(item.amount, 10);
+    console.log(item.amount)
+    console.log(total)
+    totale.innerHTML = `${total}`
+    
+    return `<div class="cart-body">
+    <img src="${item.img}" alt="">
+    <div class="nameQuantity">
+      <p id="name">${item.bookName}</p>
+      <span>1</span>
+      <i class='bx bxs-trash-alt' onclick="deleteItem(${j++})"></i>
+    </div>
+    <div class="price">$<span id="amount">${item.amount}</span></div>
+  </div>`
+  }).join('')
+  cartContent.innerHTML =cartItems
+}
+
+}
+
+
+
+
   
 // Function to initialize slick slider
 function initializeSlick() {
@@ -127,3 +281,5 @@ else{
 
 let date = document.getElementById('date')
 date.innerHTML = new Date().getFullYear()
+
+
