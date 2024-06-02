@@ -22,11 +22,12 @@
     height: 80px;
     padding: 30px 80px;
     position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     z-index: 10;
-    border-bottom: 1px solid black;
     background: white;
+    transition: top 0.3s;
 
   }
   nav .logo{
@@ -279,7 +280,7 @@
   }
   .shop-content span{
     font-size: 13px;
-    background: rgb(56, 56, 157);
+    background: var(--blue);
     width: 15px;
     height: 15px;
     border-radius: 30px;
@@ -328,10 +329,8 @@
   padding: 0 10px;
  }
  .cart-footer{
-  width: 85%;
-
+  width: 90%;
   position: absolute;
-  /* right: 50%; */
   bottom: 4%;
  } 
  .cart-footer .hr{
@@ -359,7 +358,7 @@
   background: var(--blue);
   padding: 10px 20px;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .head .bx{
   font-size: 24px;
@@ -381,16 +380,16 @@
 }
 .popular-products .view-all{
   position: absolute;
-  top: 18%;
-  right: 13%; 
+  top: 14%;
+  right: 8%; 
 }
 .addToCart{
   background: var(--blue);
   color: white;
-  padding: 5px 8px;
-  width: 100px;
-  margin-left: 45px;
-  border-radius: 50px;
+  padding: 8px 16px;
+  width: 90%;
+  border-radius: 5px;
+  border: none;
   visibility: hidden;
 
 }
@@ -399,19 +398,20 @@
 }
 .porpularP-item{
   width: 200px;
-  height: 350px;
+  height: 100%;
   cursor: pointer;
  
 }
-.popularP-text button{
-  width: 200px;
-}
 .porpularP-item img{
-  width: 200px;
-  height: 200px;
+  width: 90%;
+  height: 100%;
   object-position: center;
   object-fit: cover;
 }
+.popularP-text button{
+  width: 90%;
+}
+
 
 .popularP-text{
   display: flex;
@@ -431,8 +431,8 @@
 }
 .new-arrival .view-all{
   position: absolute;
-  top: 18%;
-  right: 13%; 
+  top: 14%;
+  right: 8%; 
 }
 
 .arrival-item:hover .addToCart{
@@ -440,15 +440,15 @@
 }
 .arrival-item{
   width: 200px;
-  height: 350px;
+  height: 100%;
   cursor: pointer;
 }
 .arrival-text button{
-  width: 200px;
+  width: 90%;
 }
 .arrival-item img{
-  width: 200px;
-  height: 200px;
+ width: 90%;
+  height: 100%;
   object-position: center;
   object-fit: cover;
 }
@@ -878,13 +878,19 @@ border-radius: 40px;
 }
 }
 @media (max-width: 730px){
- 
-  .home{
-    height: 110vh;
-  } 
+  .addToCart{
+    visibility: visible;
+  }
+  .popular-products{
+    margin-top: 12rem;
+   }
+ .home{
+  height: 120vh;
+  padding-bottom: 10px;
+ }
   .home-content{
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 4rem;
   }
  
   .home-content img{
@@ -911,7 +917,7 @@ font-size: 18px;
   .cart-section{
     width: 100%;
   }
- 
+
   nav #menu-icon{
     display: initial;
     position: absolute;
@@ -990,29 +996,17 @@ font-size: 18px;
 }
 
 @media (max-width: 564px){
-.porpularP-item{
-  width: 150px;
-  height: 300px;
-}
+
 .popularP-text button{
   width: 150px;
 }
-.porpularP-item img{
-  width: 150px;
-  height: 200px;
-}
 
-.arrival-item{
-  width: 150px;
-  height: 300px;
-}
+
+
 .arrival-text button{
   width: 150px;
 }
-.arrival-item img{
-  width: 150px;
-  height: 200px;
-}
+
 
 }
 @media (max-width: 503px){
@@ -1020,8 +1014,6 @@ font-size: 18px;
 
   section{
     padding: 40px 20px;
-    margin-bottom: 2rem;
-
   }
   nav{
     padding: 30px 20px;
@@ -1037,8 +1029,11 @@ font-size: 18px;
 }
 
 @media (max-width: 407px){
+
  
-  
+  .popular-products{
+    margin-top: 2rem;
+   }
   
   section{
     padding: 40px 20px;

@@ -283,3 +283,31 @@ let date = document.getElementById('date')
 date.innerHTML = new Date().getFullYear()
 
 
+// Navbar
+
+let lastScrollTop = 0;
+const navbar = document.querySelector('nav');
+
+window.addEventListener('scroll', () => {
+  if (window.innerWidth <= 730) {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      
+      navbar.style.top = '-80px'; 
+    } else {
+      // Scrolling up
+      navbar.style.top = '0';
+    }
+
+    lastScrollTop = scrollTop;
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 730) {
+    navbar.style.top = '0'; // Reset navbar position when resizing above 730px
+  }
+});
+
+
