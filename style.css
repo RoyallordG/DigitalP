@@ -884,13 +884,14 @@ border-radius: 40px;
   } 
   .home-content{
     width: 100%;
-    margin-top: 0;
+    margin-top: 3rem;
   }
+ 
   .home-content img{
     width: 100%;
   }
   .testimonial h1{
-    font-size: 30px;
+    font-size: 40px;
   }
  .about-text h1{
  text-align: center;
@@ -957,9 +958,7 @@ font-size: 18px;
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  .home-content{
-    transform: scale(0.8);
-  }
+  
   .popular-products .view-all{
   position: unset;
  margin-left: 150px;
@@ -1017,24 +1016,20 @@ font-size: 18px;
 
 }
 @media (max-width: 503px){
-  .home{
-    height: 100vh;
-  }
+
 
   section{
     padding: 40px 20px;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
   }
   nav{
-    padding: 30px 20px; 
+    padding: 30px 20px;
   }
   .list  {
     top: 4%;
     }  
-    .home-text h1{
-      font-size: 42px;
-    }
+    
     .home-text p{
       font-size: 16px;
     }
@@ -1042,13 +1037,8 @@ font-size: 18px;
 }
 
 @media (max-width: 407px){
-
-  
  
-  nav .logo{
-    font-size: 25px;
-    
-  }
+  
   
   section{
     padding: 40px 20px;
@@ -1068,14 +1058,15 @@ font-size: 18px;
        }
 
        .home-text h1{
-        font-size: 38px;
+        font-size: 38.5px;
       }
       .home-text p{
         font-size: 16px;
       }
       nav .logo{
+        font-size: 25px;
         position: absolute;
-        right: 35%;
+        right: 32%;
       }
       
 }
