@@ -919,7 +919,7 @@ font-size: 18px;
   }
   nav .logo{
     position: absolute;
-    right: 40%;
+    right: 33%;
   }
 
  .list  {
@@ -1017,12 +1017,17 @@ font-size: 18px;
 
 }
 @media (max-width: 503px){
+  .home{
+    height: 100vh;
+  }
 
   section{
     padding: 40px 20px;
+    margin-bottom: 1rem;
+
   }
   nav{
-    padding: 40px 20px; 
+    padding: 30px 20px; 
   }
   .list  {
     top: 4%;
@@ -1037,9 +1042,13 @@ font-size: 18px;
 }
 
 @media (max-width: 407px){
-  .home{
-    height: 100vh;
-  } 
+
+  
+ 
+  nav .logo{
+    font-size: 25px;
+    
+  }
   
   section{
     padding: 40px 20px;
