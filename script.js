@@ -105,7 +105,7 @@ let category = product.map(function(item, index){
   <span class="category">Category</span>
   <span class="Book-name">${item.bookName}</span>
   <button>$<span>${item.amount}</span></button>
- <button class="addToCart" onclick='addToCart(${i++})'>Add to Cart</button>
+ <button class="addToCart" onclick='addToCart(event, ${i++})'>Add to Cart</button>
 </div>
 </div>`
 }).join('')
@@ -120,7 +120,7 @@ return ` <div class="arrival-item">
 <span class="category">Category</span>
 <span class="Book-name">${item.bookName}</span>
 <button>$<span>${item.amount}</span></button>
-<button class="addToCart" onclick='addToCart(${i++})'>Add to Cart</button>
+<button class="addToCart" onclick='addToCart(event, ${i++})'>Add to Cart</button>
 </div>
 </div>`
 }).join("")
@@ -143,7 +143,7 @@ let addToCartbtns = document.querySelectorAll('.addToCart')
 let cart = []
 const addedProducts = new Set();
 
-function addToCart(index){
+function addToCart(event, index){
  
   if (addedProducts.has(index)) {
     return; // Do nothing if the product is already in the cart
@@ -153,10 +153,9 @@ function addToCart(index){
   addedProducts.add(index);
   navbar.style.top = '0';
   displayCart();
-  addToCartbtns.forEach(function(addToCartbtn){
-    addToCartbtn.textContent = 'Already in Cart';
-    addToCartbtn.disabled = true;
-  })
+  const addToCartbtn = event.target;
+  addToCartbtn.textContent = 'Already in Cart';
+  addToCartbtn.disabled = true;
  
   }
  
