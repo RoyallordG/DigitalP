@@ -16,6 +16,12 @@
     --blue:  rgb(26, 76, 211);
     --main-transition: all 0.3s linear;
   }
+
+  body{
+    position: relative;
+  }
+
+  /* NAVBAR */
   
   nav {
     width: 100%;
@@ -33,8 +39,50 @@
   nav .logo{
    font-weight: 700;
    font-size: 30px;
+   color: black;
   }
-  
+
+  .nav-icon{
+    display: flex;
+    column-gap: 0.5rem;
+  }
+  nav #menu-icon{
+    border: 2px solid black;
+    border-radius: 3px;
+    font-size: 30px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+  .nav-icon .bx{
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .nav-icon{
+    position: relative;
+    padding: 5px;
+  }
+  .nav-icon span{
+    cursor: pointer;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--blue);
+    width: 15px;
+    height: 15px;
+    border-radius: 30px;
+    color: white;
+   padding: 3px;  
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+   
   .list {
     display: flex;
     align-items: center;
@@ -53,6 +101,7 @@
   .list li a:hover{
     transition: var(--main-transition);
     color: var(--blue);
+    font-weight: 700;
   }
 
   .dropdown {
@@ -81,33 +130,21 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  .nav-icon{
-    display: flex;
-    column-gap: 0.5rem;
-  }
-  nav #menu-icon{
-    border: 2px solid black;
-    border-radius: 3px;
-    font-size: 30px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-  }
-  .nav-icon .bx{
-    font-size: 30px;
-    cursor: pointer;
-  }
-  
+
+  /* END OF NAVBAR */
+
+  /* SECTION */
+ 
   section{
     padding: 60px 80px;
   }
+ /*END OF SECTION */
+
+/* HOME */
+
   .home{
     width: 100%;
-    height: 150vh;
-   
+    height: 100vh;
   }
 
   .home-content{
@@ -126,10 +163,14 @@
     font-size: 50px;
     margin-bottom: 20px;
   }
-  
-.home-content img{
-  margin-top: 2rem;
-    width: 60%;
+  .home-img{
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.home-img img{
+    width: 100%;
    object-fit: contain;
    object-position: center;
    border-radius: 10px;
@@ -197,32 +238,9 @@
     color: white;
     column-gap: 2rem;
   }
-  .nav-icon{
-    position: relative;
-    padding: 5px;
-  }
-  .nav-icon span{
-    cursor: pointer;
-    font-size: 13px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: var(--blue);
-    width: 15px;
-    height: 15px;
-    border-radius: 30px;
-    color: white;
-   padding: 3px;  
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  }
-  body{
-    position: relative;
   
-  }
 
-  /* cart */
+  /* CART */
   .cart-items h3{
     text-align: center;
   }
@@ -246,6 +264,9 @@
     transform: translateX(100%);
     transition: var(--main-transition);
   }
+
+  /* OVERLAY */
+
   .overlay{
     position: fixed;
     top: 0;
@@ -260,6 +281,8 @@
   .overlay.active{
     visibility: visible;
   }
+  /*END OF OVERLAY */
+
   .cart-section.active{
    transform: translateX(0);
   }
@@ -361,14 +384,22 @@
   border-radius: 5px;
 }
 .head .bx{
-  font-size: 24px;
+  font-size: 40px;
   cursor: pointer;
 }
 
+/* END OF CART */
+
+/* HEADING */
 
 .heading{
   margin-bottom: 50px;
 }
+
+/*END OF HEADING */
+
+
+/* POPULAR PRODUCT */
 
 .popularP-container{
   display: grid;
@@ -420,7 +451,9 @@
   
 } 
 
-/* Arrival */
+/* END OF POPULAR PRODUCT */
+
+/* ARRIVAL PRODUCT */
 .arrival-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, auto));
@@ -460,6 +493,8 @@
   
 } 
 
+/*END OF ARRIVAL PRODUCT */
+
 /* Positioning the next and previous buttons */
 .slick-prev,
 .slick-next {
@@ -481,6 +516,8 @@
     color: var(--blue);
 }
 
+/* BACK TO TOP */
+
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -495,8 +532,10 @@
   visibility: visible;
 }
 
-/* footer */
+/*END OF BACK TO TOP */
 
+
+/* FOOTER */
 .footer{
   background: var(--blue);
   color: white;
@@ -530,7 +569,9 @@
   line-height: 30px;
 }
 
-/* Contact Page */
+/* FOOTER */
+
+/* CONTACT PAGE */
 
 .contact .container{
   display: grid;
@@ -596,10 +637,9 @@ form button{
 .content .bx{
   font-size: 40px;
 }
+/*END OF CONTACT PAGE */
 
-
-/* About */
-
+/* ABOUT PAGE*/
 
 .first-container{
   display: grid;
@@ -672,7 +712,9 @@ border-radius: 40px;
   border-radius: 50px;
 }
 
-/* Blog Styling */
+/* ABOUT PAGE*/
+
+/* BLOG PAGE */
 
 .blog-container{
   display: grid;
@@ -754,7 +796,11 @@ border-radius: 40px;
 .side-content span{
   margin-bottom: 1.5rem;
 }
-/* Responsiveness of home page */
+
+/* BLOG PAGE */
+
+
+/* RESPONSIVENESS */
 @media (max-width: 1033px){
   .cart-section{
     width: 30%;
@@ -777,10 +823,7 @@ border-radius: 40px;
     right: 3%;
   }
   .blog-container{
-  
     grid-template-columns: 100%; 
-   
-    
   }
   .about-text a{
     font-size: 20px;
@@ -884,16 +927,12 @@ border-radius: 40px;
   .popular-products{
     margin-top: 12rem;
    }
- .home{
-  height: 120vh;
-  padding-bottom: 10px;
- }
   .home-content{
     width: 100%;
     margin-top: 4rem;
   }
  
-  .home-content img{
+  .home-img img{
     width: 100%;
   }
   .testimonial h1{
@@ -921,7 +960,7 @@ font-size: 18px;
   nav #menu-icon{
     display: initial;
     position: absolute;
-    left: auto;
+    right: 80px;
 
   }
   nav .logo{
@@ -988,35 +1027,28 @@ font-size: 18px;
     }
 }
 
-@media (max-width: 719px){
- 
-  .home{
-    height: 120vh;
-  } 
-}
-
 @media (max-width: 564px){
 
 .popularP-text button{
   width: 150px;
 }
 
-
-
 .arrival-text button{
   width: 150px;
 }
-
-
 }
 @media (max-width: 503px){
-
-
   section{
     padding: 40px 20px;
   }
+  .home-img{
+    padding: 0 20px;
+  }
   nav{
     padding: 30px 20px;
+  }
+  nav #menu-icon{
+    right: 20px;
   }
   .list  {
     top: 4%;

@@ -4,6 +4,7 @@ let overlay = document.querySelector('.overlay')
 let cartSection = document.querySelector('.cart-section')
 let menuIcon = document.querySelector('#menu-icon')
 let list = document.querySelector('.list')
+let navbar = document.querySelector('nav');
 cartIcon.addEventListener('click', function(){
 cartSection.classList.add('active')
 overlay.classList.add('active')
@@ -126,6 +127,9 @@ return ` <div class="arrival-item">
 
 arrivalContainer.innerHTML =  arrivalcategory
 
+
+
+
  
 
 let cartContent = document.querySelector('.cart-content')
@@ -134,13 +138,28 @@ let countercount2 = document.getElementById('cartCounter')
 let totale = document.getElementById('total')
 let price = document.getElementById('amount')
 
+let addToCartbtns = document.querySelectorAll('.addToCart')
 
 let cart = []
+const addedProducts = new Set();
 
 function addToCart(index){
-  cart.push({...allProducts[index]})
-  displayCart()
+ 
+  if (addedProducts.has(index)) {
+    return; // Do nothing if the product is already in the cart
   }
+
+  cart.push({ ...allProducts[index] });
+  addedProducts.add(index);
+  navbar.style.top = '0';
+  displayCart();
+  addToCartbtns.forEach(function(addToCartbtn){
+    addToCartbtn.textContent = 'Already in Cart';
+    addToCartbtn.disabled = true;
+  })
+ 
+  }
+ 
 function deleteItem(index){
   cart.splice(index, 1)
   displayCart()
@@ -176,11 +195,8 @@ else {
 
 }
 
-
-
-
   
-// Function to initialize slick slider
+//START OF Function to initialize slick slider
 function initializeSlick() {
     var container = $('.popularP-container');
     var containerWidth = container.width();
@@ -254,6 +270,10 @@ $('.arrival-container').slick({
       // instead of a settings object
     ]
   });
+//END OF Function to initialize slick slider
+
+// BACK TO TOP LOGIC
+  
 let nav = document.querySelector('nav')
   let backtotop = document.querySelector('.back-to-top')
 window.addEventListener('scroll', () => {
@@ -270,8 +290,9 @@ else{
 window.addEventListener('scroll', () => {
   nav.classList.toggle('shadow', window.scrollY > 0);
 let scrollHeight = window.scrollY 
+console.log(scrollHeight)
 
-if(scrollHeight > 1100){
+if(scrollHeight > 1510){
    backtotop.style.color = 'white'
 }
 else{
@@ -282,11 +303,13 @@ else{
 let date = document.getElementById('date')
 date.innerHTML = new Date().getFullYear()
 
+//END OF BACK TO TOP LOGIC
 
-// Navbar
+
+// NAVBAR DISPLAY
 
 let lastScrollTop = 0;
-const navbar = document.querySelector('nav');
+
 
 window.addEventListener('scroll', () => {
   if (window.innerWidth <= 730) {
@@ -310,4 +333,4 @@ window.addEventListener('resize', () => {
   }
 });
 
-
+//END OF NAVBAR DISPLAY
