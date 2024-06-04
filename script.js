@@ -153,15 +153,24 @@ function addToCart(event, index){
   addedProducts.add(index);
   navbar.style.top = '0';
   displayCart();
-  const addToCartbtn = event.target;
+  let addToCartbtn = event.target;
   addToCartbtn.textContent = 'Already in Cart';
   addToCartbtn.disabled = true;
  
   }
  
 function deleteItem(index){
+  console.log(index)
   cart.splice(index, 1)
   displayCart()
+ 
+
+  let addToCartbtn = document.querySelectorAll('.addToCart')[index];
+
+  if (addToCartbtn) {
+    addToCartbtn.textContent = 'Add to Cart';
+    addToCartbtn.disabled = false;
+  }
 }
 
 function displayCart(){
