@@ -144,7 +144,7 @@
 
   .home{
     width: 100%;
-    height: 90vh;
+    height: 100vh;
   }
 
   .home-content{
@@ -170,7 +170,7 @@
     justify-content: center;
   }
 .home-img img{
-    width: 100%;
+    width: 60%;
    object-fit: contain;
    object-position: center;
    border-radius: 10px;
@@ -1028,6 +1028,14 @@ font-size: 18px;
 }
 
 @media (max-width: 564px){
+  .home{
+    height: 80vh;
+  }
+  .popularP-container,  .arrival-container{
+    position: fixed;
+  bottom: 0;
+  width: 100%;
+  }
 
 .popularP-text button{
   width: 150px;

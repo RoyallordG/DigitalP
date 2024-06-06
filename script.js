@@ -99,7 +99,7 @@ let allProducts = product.concat(arrival)
 let popularpContainer = document.querySelector('.popularP-container')
 let i = 0
 let category = product.map(function(item, index){
-  return ` <div class="porpularP-item">
+  return ` <div class="porpularP-item" id=${item.id}>
   <a href=""><img src="${item.img}" alt=""></a> 
   <div class="popularP-text">
   <span class="category">Category</span>
@@ -114,7 +114,7 @@ popularpContainer.innerHTML = category
 
 let arrivalContainer = document.querySelector('.arrival-container')
 let arrivalcategory = arrival.map(function(item, index){
-return ` <div class="arrival-item">
+return ` <div class="arrival-item" id=${item.id}>
 <a href=""><img src="${item.img}" alt=""></a> 
 <div class="arrival-text">
 <span class="category">Category</span>
@@ -138,39 +138,26 @@ let countercount2 = document.getElementById('cartCounter')
 let totale = document.getElementById('total')
 let price = document.getElementById('amount')
 
-let addToCartbtns = document.querySelectorAll('.addToCart')
 
 let cart = []
-const addedProducts = new Set();
 
 function addToCart(event, index){
- 
-  if (addedProducts.has(index)) {
-    return; // Do nothing if the product is already in the cart
-  }
-
-  cart.push({ ...allProducts[index] });
-  addedProducts.add(index);
-  navbar.style.top = '0';
-  displayCart();
   let addToCartbtn = event.target;
-  addToCartbtn.textContent = 'Already in Cart';
-  addToCartbtn.disabled = true;
- 
+  if(addToCartbtn.textContent === "Add to Cart"){
+    cart.push({ ...allProducts[index]});
+    navbar.style.top = '0';
+    displayCart();
+    console.log(addToCartbtn)
+    addToCartbtn.textContent = 'Already in Cart';
+    }
   }
  
-function deleteItem(index){
-  console.log(index)
+function deleteItem(index, id){
   cart.splice(index, 1)
   displayCart()
- 
-
-  let addToCartbtn = document.querySelectorAll('.addToCart')[index];
-
-  if (addToCartbtn) {
-    addToCartbtn.textContent = 'Add to Cart';
-    addToCartbtn.disabled = false;
-  }
+const elementDelete = document.getElementById(id)
+button = elementDelete.querySelector('.addToCart')
+button.textContent = 'Add to Cart'
 }
 
 function displayCart(){
@@ -184,8 +171,8 @@ function displayCart(){
 else {
   let cartItems = cart.map(function(item){
     total = total + parseInt(item.amount, 10);
-    console.log(item.amount)
-    console.log(total)
+    
+    
     totale.innerHTML = `${total}`
     
     return `<div class="cart-body">
@@ -193,7 +180,7 @@ else {
     <div class="nameQuantity">
       <p id="name">${item.bookName}</p>
       <span>1</span>
-      <i class='bx bxs-trash-alt' onclick="deleteItem(${j++})"></i>
+      <i class='bx bxs-trash-alt' onclick="deleteItem(${j++}, ${item.id})"></i>
     </div>
     <div class="price">$<span id="amount">${item.amount}</span></div>
   </div>`
@@ -298,7 +285,7 @@ else{
 window.addEventListener('scroll', () => {
   nav.classList.toggle('shadow', window.scrollY > 0);
 let scrollHeight = window.scrollY 
-console.log(scrollHeight)
+
 
 if(scrollHeight > 1510){
    backtotop.style.color = 'white'
