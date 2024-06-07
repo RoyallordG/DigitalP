@@ -323,3 +323,16 @@ window.addEventListener('resize', () => {
   }
 });
 
+
+  //END OF NAVBAR DISPLAY
+  const inputField = document.querySelector('input');
+  console.log(inputField)
+  
+  inputField.addEventListener('focus', () => {
+    document.querySelector('.home-img').style.position = 'absolute'; // or 'fixed' based on requirement
+    document.querySelector('.home-img').style.bottom = '100px'; // Adjust accordingly
+  });
+  
+  inputField.addEventListener('blur', () => {
+    document.querySelector('.home-img').style.position = 'static'; // or revert to the initial state
+  });
