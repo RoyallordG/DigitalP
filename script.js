@@ -323,4 +323,3 @@ window.addEventListener('resize', () => {
   }
 });
 
-//END OF NAVBAR DISPLAY

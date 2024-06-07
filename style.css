@@ -923,9 +923,7 @@ border-radius: 40px;
 }
 }
 @media (max-width: 730px){
-  .home-img {
-    height: calc(60vh - 50px); 
-  }
+ 
   .addToCart{
     visibility: visible;
   }

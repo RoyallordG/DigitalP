@@ -165,6 +165,19 @@
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script src="script.js"></script>
+<script src="script.js">
+
+  //END OF NAVBAR DISPLAY
+const inputField = document.querySelector('input[type="text"]');
+
+inputField.addEventListener('focus', () => {
+  document.querySelector('.home-img').style.position = 'absolute'; // or 'fixed' based on requirement
+  document.querySelector('.home-img').style.bottom = '50px'; // Adjust accordingly
+});
+
+inputField.addEventListener('blur', () => {
+  document.querySelector('.home-img').style.position = 'static'; // or revert to the initial state
+});
+</script>
 </body>
 </html>
