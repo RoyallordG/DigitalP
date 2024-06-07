@@ -797,6 +797,8 @@ border-radius: 40px;
   margin-bottom: 1.5rem;
 }
 
+
+
 /* BLOG PAGE */
 
 
@@ -921,6 +923,9 @@ border-radius: 40px;
 }
 }
 @media (max-width: 730px){
+  .home-img {
+    height: calc(60vh - 50px); 
+  }
   .addToCart{
     visibility: visible;
   }
@@ -1030,11 +1035,6 @@ font-size: 18px;
 @media (max-width: 564px){
   .home{
     height: 80vh;
-  }
-  .popularP-container,  .arrival-container{
-    position: fixed;
-  bottom: 0;
-  width: 100%;
   }
 
 .popularP-text button{

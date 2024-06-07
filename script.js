@@ -151,45 +151,40 @@ function addToCart(event, index){
     addToCartbtn.textContent = 'Already in Cart';
     }
   }
+
  
-function deleteItem(index, id){
-  cart.splice(index, 1)
-  displayCart()
-const elementDelete = document.getElementById(id)
-button = elementDelete.querySelector('.addToCart')
-button.textContent = 'Add to Cart'
-}
+  function deleteItem(id, index){
+    cart.splice(index, 1);
+    displayCart();
+    const elementDelete = document.getElementById(id);
+    let button = elementDelete.querySelector('.addToCart');
+    button.textContent = 'Add to Cart';
+  }
 
-function displayCart(){
-  let j, total = 0
-  countercount.innerHTML = cart.length
-  countercount2.innerHTML = cart.length
-  if (cart.length === 0){
-  cartContent.innerHTML = `<h3 style="text-align: center; margin-top: 30px;">Your Cart is Empty</h3>`
-  totale.innerHTML = `0.00`
-}
-else {
-  let cartItems = cart.map(function(item){
-    total = total + parseInt(item.amount, 10);
-    
-    
-    totale.innerHTML = `${total}`
-    
-    return `<div class="cart-body">
-    <img src="${item.img}" alt="">
-    <div class="nameQuantity">
-      <p id="name">${item.bookName}</p>
-      <span>1</span>
-      <i class='bx bxs-trash-alt' onclick="deleteItem(${j++}, ${item.id})"></i>
-    </div>
-    <div class="price">$<span id="amount">${item.amount}</span></div>
-  </div>`
-  }).join('')
-  cartContent.innerHTML =cartItems
-}
-
-}
-
+  function displayCart(){
+    let total = 0;
+    countercount.innerHTML = cart.length;
+    countercount2.innerHTML = cart.length;
+    if (cart.length === 0) {
+      cartContent.innerHTML = `<h3 style="text-align: center; margin-top: 30px;">Your Cart is Empty</h3>`;
+      totale.innerHTML = `0.00`;
+    } else {
+      let cartItems = cart.map(function(item, index){
+        total = total + parseInt(item.amount, 10);
+        totale.innerHTML = `${total}`;
+        return `<div class="cart-body">
+          <img src="${item.img}" alt="">
+          <div class="nameQuantity">
+            <p id="name">${item.bookName}</p>
+            <span>1</span>
+            <i class='bx bxs-trash-alt' onclick="deleteItem('${item.id}', ${index})"></i>
+          </div>
+          <div class="price">$<span id="amount">${item.amount}</span></div>
+        </div>`;
+      }).join('');
+      cartContent.innerHTML = cartItems;
+    }
+  }
   
 //START OF Function to initialize slick slider
 function initializeSlick() {
